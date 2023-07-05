@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.util.List;
 import java.util.Properties;
 
+import javax.activation.DataHandler;
 import javax.mail.Address;
 import javax.mail.Authenticator;
 import javax.mail.BodyPart;
@@ -16,6 +17,7 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
+import javax.mail.util.ByteArrayDataSource;
 
 import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
@@ -134,8 +136,10 @@ public class ObjetoenvioEmail2 {
 			corpoEmail.setText(textoEmail);
 		}
 		
-		//PARTE 2 do email que é o anexo do email;
+		//PARTE 2 do email que é o anexo do email em pdf;
 		MimeBodyPart anexoEmail = new MimeBodyPart();
+		//neste metodo setDataHandler que é recebido o arquivo
+		anexoEmail.setDataHandler(new DataHandler(new ByteArrayDataSource("", "application/pdf")));
 		
 		
 		Transport.send(message);
