@@ -87,6 +87,57 @@ public class ObjetoenvioEmail2 {
 		
 		}
 	
+	public void enviarEmailanexo(boolean envioHtml)  throws Exception{
+		Properties properties = new Properties();
+
+		properties.put("mail.smtp.ssl.trust", "*"); //Autenticação com ssl
+		properties.put("mail.smtp.auth", "true"); // Autorização
+		properties.put("mail.smtp.starttls", "true"); //Autenticação
+		properties.put("mail.smtp.host", "smtp.gmail.com"); //servidor gmail Google
+		properties.put("mail.smtp.port", "465"); //Porta do Servidor - caminho de entrada que está liberado para envio de email 
+		properties.put("mail.smtp.socketFactory.port", "465");// Especifica a porta a ser conectada pelo socket
+		properties.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory"); // Classe de conexão
+		
+		Session session = Session.getInstance(properties, new Authenticator() {//pegando as intâncias da propridade passadas acima, 
+			//e também a autenticação com usuário e senha do email utilizado
+			@Override
+			protected PasswordAuthentication getPasswordAuthentication() {
+
+				return new PasswordAuthentication(userName, senha);
+			}
+		});
+		//testando o objeto de conexão, caso não conectasse iria dar erro de conexão
+		//System.out.println(senha);
+		//Address[] toUser = InternetAddress
+			//	.parse("nelsonsouto16@gmail.com, nelsonscosta@yahoo.com.br, nelsonscosta@aol.com");
+		Address[] toUser = InternetAddress
+				.parse(listaDestinatarios);
+		
+		Message message = new MimeMessage(session);// A sessão recebe o properties,  e a mensagem recebe a sessão
+		//message.setFrom(new InternetAddress(userName, nomeRemetente));//quem está enviando
+		message.setFrom(new InternetAddress(userName, nomeRemetente));//quem está enviando, seu nome no e-mail
+		message.setRecipients(Message.RecipientType.TO, toUser);// quem estou enviando
+		message.setSubject(assuntoEmail);//Assunto do e-mail
+		
+		
+		//PARTE 1 do email que é o texto e adescrição do email;
+		MimeBodyPart corpoEmail = new MimeBodyPart();
+		
+		
+		
+		
+		// Se estiver enviando com html, senão enviar texto normal
+		if (envioHtml) {
+			message.setContent(textoEmail, "text/html; charset=utf-8");
+		} else {
+			message.setText(textoEmail);
+		}
+		
+		Transport.send(message);
+		
+		}
+	
+	
 	private FileInputStream simuladorPDF() throws Exception {
 		Document document = new Document();
 		String filePath = "C:\\CURRICULO\\2023Currículo Nelson.pdf";
