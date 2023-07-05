@@ -20,13 +20,13 @@ public class AppTest {
     	try {
     		Properties properties = new Properties();
 
-    		properties.put("mail.smtp.ssl.trust", "*");
-    		properties.put("mail.smtp.auth", "true");
-    		properties.put("mail.smtp.starttls", "true");
-    		properties.put("mail.smtp.host", "smtp.gmail.com");
-    		properties.put("mail.smtp.port", "465");
-    		properties.put("mail.smtp.socketFactory.port", "465");
-    		properties.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+    		properties.put("mail.smtp.ssl.trust", "*"); 
+    		properties.put("mail.smtp.auth", "true"); // Autorização
+    		properties.put("mail.smtp.starttls", "true"); //Autenticação
+    		properties.put("mail.smtp.host", "smtp.gmail.com"); //servidor gmail Google
+    		properties.put("mail.smtp.port", "465"); //Porta do Servidor - caminho de entrada que está liberado para envio de email 
+    		properties.put("mail.smtp.socketFactory.port", "465");// Especifica a porta a ser conectada pelo socket
+    		properties.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory"); // Classe de conexão
     		
     		Session session = Session.getInstance(properties, new Authenticator() {
     			@Override
