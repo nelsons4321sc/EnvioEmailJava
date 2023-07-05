@@ -16,6 +16,9 @@ public class ObjetoenvioEmail2 {
 	private String userName = "nelsonsouto16@gmail.com";
 	private String senha = "n g n l pic m n x h k b o t b";
 	
+	private String listaDestinatarios = "";
+	private String nomeRemetente = "";
+	
 	
 	public void enviarEmail()  throws Exception{
 		Properties properties = new Properties();
@@ -38,12 +41,14 @@ public class ObjetoenvioEmail2 {
 		});
 		//testando o objeto de conexão, caso não conectasse iria dar erro de conexão
 		//System.out.println(senha);
+		//Address[] toUser = InternetAddress
+			//	.parse("nelsonsouto16@gmail.com, nelsonscosta@yahoo.com.br, nelsonscosta@aol.com");
 		Address[] toUser = InternetAddress
-				.parse("nelsonsouto16@gmail.com, nelsonscosta@yahoo.com.br, nelsonscosta@aol.com");
+				.parse(listaDestinatarios);
 		
 		Message message = new MimeMessage(session);// A sessão recebe o properties,  e a mensagem recebe a sessão
 		//message.setFrom(new InternetAddress(userName, nomeRemetente));//quem está enviando
-		message.setFrom(new InternetAddress(userName, "Nelson - Programador em Java"));//quem está enviando, seu nome no e-mail
+		message.setFrom(new InternetAddress(userName, nomeRemetente));//quem está enviando, seu nome no e-mail
 		message.setRecipients(Message.RecipientType.TO, toUser);// quem estou enviando
 		message.setSubject("Chegou email enviado com java");//Assunto do e-mail
 		message.setText("Teste de email");
