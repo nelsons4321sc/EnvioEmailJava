@@ -25,7 +25,7 @@ public class AppTest {
     	try {
     		Properties properties = new Properties();
 
-    		properties.put("mail.smtp.ssl.trust", "*"); 
+    		properties.put("mail.smtp.ssl.trust", "*"); //Autenticação com ssl
     		properties.put("mail.smtp.auth", "true"); // Autorização
     		properties.put("mail.smtp.starttls", "true"); //Autenticação
     		properties.put("mail.smtp.host", "smtp.gmail.com"); //servidor gmail Google
@@ -48,7 +48,7 @@ public class AppTest {
     		
     		Message message = new MimeMessage(session);// A sessão recebe o properties,  e a mensagem recebe a sessão
     		//message.setFrom(new InternetAddress(userName, nomeRemetente));//quem está enviando
-    		message.setFrom(new InternetAddress(userName));//quem está enviando
+    		message.setFrom(new InternetAddress(userName, "Nelson - Programador em Java"));//quem está enviando, seu nome no e-mail
     		message.setRecipients(Message.RecipientType.TO, toUser);// quem estou enviando
     		message.setSubject("Chegou email enviado com java");//Assunto do e-mail
     		message.setText("Teste de email");
