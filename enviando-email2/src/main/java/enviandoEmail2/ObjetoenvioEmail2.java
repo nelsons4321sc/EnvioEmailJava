@@ -20,7 +20,7 @@ public class ObjetoenvioEmail2 {
 	private String nomeRemetente = "";
 	private String assuntoEmail = "";
 	private String textoEmail = "";
-	private String filePath = "/caminho/para/arquivo/anexo.txt";
+	//private String filePath = "/caminho/para/arquivo/anexo.txt";
 	
 	public ObjetoenvioEmail2(String listaDestinatário, String nomeRemetente, String assuntoEmail, String textoEmail) {
 		this.listaDestinatarios = listaDestinatário;

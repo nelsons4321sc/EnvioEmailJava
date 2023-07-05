@@ -18,7 +18,7 @@ public class AppTest {
 		stringBuilderTextoEmail.append("Email Príncipal: nelsonscosta@yahoo.com.br<br/>");
 		stringBuilderTextoEmail.append("https://www.linkedin.com/in/nelson-souto-itil-083b7b23/<br/>");
 		stringBuilderTextoEmail.append("https://github.com/nelsonscosta/Projeto-Spring-Boot/tree/master</h3><br/>");
-		stringBuilderTextoEmail.append("https://github.com/nelsonscosta/Projeto-Spring-Boot/tree/master</h3><br/>");
+		
 		stringBuilderTextoEmail.append("<center><img style=\"width: 30%; height:30%;\" src=\"https://amplificadigital.com.br/wp-content/uploads/2019/12/amplifica_banner_blog_programaccca7acc83o.webp\" alt=\"\"></center>");
 		
 		stringBuilderTextoEmail.append("<center><h2 style=\"background-color:rgb(210, 220, 241)\"> OBJETIVO: ANALISTA DE SISTEMA</h2></center>");
@@ -133,10 +133,10 @@ public class AppTest {
 		
 		
 		
-		ObjetoenvioEmail2 enviaEmail = new ObjetoenvioEmail2("nelsonscosta@yahoo.com.br",
-															  "Nelson - Programador em Java",
-															  "Email enviado através do java",
-															   stringBuilderTextoEmail.toString());
+		ObjetoenvioEmail2 enviaEmail = new ObjetoenvioEmail2("nelsonscosta@yahoo.com.br", // destinatário
+															  "Nelson - Programador em Java", //remetente
+															  "Email enviado através do java", //Assinto do email
+															   stringBuilderTextoEmail.toString()); //conteúdo do email
 		//quando enviar email html será true
 		//quando enviar email somente texto será false
 		enviaEmail.enviarEmail(true);
