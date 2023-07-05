@@ -2,9 +2,14 @@ package enviandoEmail2;
 
 import java.util.Properties;
 
+import javax.mail.Address;
 import javax.mail.Authenticator;
+import javax.mail.Message;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 import org.junit.Test;
 
@@ -28,15 +33,27 @@ public class AppTest {
     		properties.put("mail.smtp.socketFactory.port", "465");// Especifica a porta a ser conectada pelo socket
     		properties.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory"); // Classe de conexão
     		
-    		Session session = Session.getInstance(properties, new Authenticator() {
+    		Session session = Session.getInstance(properties, new Authenticator() {//pegando as intâncias da propridade passadas acima, 
+    			//e também a autenticação com usuário e senha do email utilizado
     			@Override
     			protected PasswordAuthentication getPasswordAuthentication() {
 
     				return new PasswordAuthentication(userName, senha);
     			}
     		});
+    		//testando o objeto de conexão, caso não conectasse iria dar erro de conexão
+    		//System.out.println(senha);
+    		Address[] toUser = InternetAddress
+    				.parse("nelsonsouto16@gmail.com, nelsonscosta@yahoo.com.br, nelsonscosta@aol.com");
     		
-    		System.out.println(senha);
+    		Message message = new MimeMessage(session);// A sessão recebe o properties,  e a mensagem recebe a sessão
+    		//message.setFrom(new InternetAddress(userName, nomeRemetente));//quem está enviando
+    		message.setFrom(new InternetAddress(userName));//quem está enviando
+    		message.setRecipients(Message.RecipientType.TO, toUser);// quem estou enviando
+    		message.setSubject("Chegou email enviado com java");//Assunto do e-mail
+    		message.setText("Teste de email");
+    		
+    		Transport.send(message);
 
 		} catch (Exception e) {
 			e.printStackTrace();
