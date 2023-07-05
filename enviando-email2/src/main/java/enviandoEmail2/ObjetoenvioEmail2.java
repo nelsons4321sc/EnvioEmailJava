@@ -127,10 +127,11 @@ public class ObjetoenvioEmail2 {
 		
 		
 		// Se estiver enviando com html, senão enviar texto normal
+		//trocado o message
 		if (envioHtml) {
-			message.setContent(textoEmail, "text/html; charset=utf-8");
+			corpoEmail.setContent(textoEmail, "text/html; charset=utf-8");
 		} else {
-			message.setText(textoEmail);
+			corpoEmail.setText(textoEmail);
 		}
 		
 		Transport.send(message);
