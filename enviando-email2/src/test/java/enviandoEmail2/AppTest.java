@@ -54,6 +54,8 @@ public class AppTest {
     		message.setText("Teste de email");
     		
     		Transport.send(message);
+    		//caso o e-mail não está sendo enviado colocar um tempo
+    		Thread.sleep(2000);
 
 		} catch (Exception e) {
 			e.printStackTrace();
