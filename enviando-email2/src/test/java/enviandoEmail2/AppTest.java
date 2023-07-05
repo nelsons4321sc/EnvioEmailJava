@@ -12,7 +12,8 @@ public class AppTest {
 															  "Nelson - Programador em Java",
 															  "Email enviado através do java",
 															  "Email de teste");
-		enviaEmail.enviarEmail();
+		//no caso ainda não estamos usando html
+		enviaEmail.enviarEmail(false);
     	
 		//caso o e-mail não está sendo enviado colocar um tempo
 		Thread.sleep(2000);	

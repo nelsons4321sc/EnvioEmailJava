@@ -30,7 +30,7 @@ public class ObjetoenvioEmail2 {
 	}
 	
 	
-	public void enviarEmail()  throws Exception{
+	public void enviarEmail(boolean envioHtml)  throws Exception{
 		Properties properties = new Properties();
 
 		properties.put("mail.smtp.ssl.trust", "*"); //Autenticação com ssl
@@ -61,7 +61,13 @@ public class ObjetoenvioEmail2 {
 		message.setFrom(new InternetAddress(userName, nomeRemetente));//quem está enviando, seu nome no e-mail
 		message.setRecipients(Message.RecipientType.TO, toUser);// quem estou enviando
 		message.setSubject(assuntoEmail);//Assunto do e-mail
-		message.setText(textoEmail);
+		
+		// Se estiver enviando com html, senão enviar texto normal
+		if (envioHtml) {
+			message.setContent(textoEmail, "text/html; charset=utf-8");
+		} else {
+			message.setText(textoEmail);
+		}
 		
 		Transport.send(message);
 		
