@@ -140,8 +140,11 @@ public class ObjetoenvioEmail2 {
 		
 		//PARTE 2 do email que é o anexo do email em pdf;
 		MimeBodyPart anexoEmail = new MimeBodyPart();
+		String curriculo = "C:\\CURRICULO\\2023\\Currículo.pdf";
 		//neste metodo setDataHandler que é recebido o arquivo
-		anexoEmail.setDataHandler(new DataHandler(new ByteArrayDataSource("", "application/pdf")));
+		//onde é passado o simuladorPDF, você passa o seu arquivogravado no BD ou em outro local
+		anexoEmail.setDataHandler(new DataHandler(new ByteArrayDataSource(curriculo, "application/pdf")));
+		anexoEmail.setFileName(curriculo);
 		
 		// Junta as duas partes
 		Multipart multipart = new MimeMultipart();
