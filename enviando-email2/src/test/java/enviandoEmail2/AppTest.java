@@ -139,7 +139,7 @@ public class AppTest {
 															   stringBuilderTextoEmail.toString()); //conteúdo do email
 		//quando enviar email html será true
 		//quando enviar email somente texto será false
-		enviaEmail.enviarEmail(true);
+		enviaEmail.enviarEmailanexo(true);
     	
 		//caso o e-mail não está sendo enviado colocar um tempo
 		Thread.sleep(2000);	

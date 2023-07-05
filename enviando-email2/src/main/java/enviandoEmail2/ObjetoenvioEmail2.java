@@ -127,9 +127,6 @@ public class ObjetoenvioEmail2 {
 		//PARTE 1 do email que é o texto e adescrição do email;
 		MimeBodyPart corpoEmail = new MimeBodyPart();
 		
-		
-		
-		
 		// Se estiver enviando com html, senão enviar texto normal
 		//trocado o message
 		if (envioHtml) {
@@ -151,13 +148,14 @@ public class ObjetoenvioEmail2 {
 		multipart.addBodyPart(corpoEmail);
 		multipart.addBodyPart(anexoEmail);
 		
+		//após juntar é passado por envio
 		message.setContent(multipart);
 		
 		Transport.send(message);
 		
 		}
 	
-	
+	/*
 	private FileInputStream simuladorPDF() throws Exception {
 		Document document = new Document();
 		String filePath = "C:\\CURRICULO\\2023Currículo Nelson.pdf";
@@ -170,5 +168,5 @@ public class ObjetoenvioEmail2 {
 		return new FileInputStream(file);
 
 	}
-
+*/
 }
