@@ -1,15 +1,29 @@
 package enviandoEmail2;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.util.List;
 import java.util.Properties;
 
 import javax.mail.Address;
 import javax.mail.Authenticator;
+import javax.mail.BodyPart;
 import javax.mail.Message;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
+
+import com.itextpdf.text.Chunk;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.ElementListener;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.WritableDirectElement;
+import com.itextpdf.text.pdf.PdfWriter;
 
 public class ObjetoenvioEmail2 {
 	
@@ -71,6 +85,18 @@ public class ObjetoenvioEmail2 {
 		
 		Transport.send(message);
 		
+		}
+	
+	private FileInputStream simuladorPDF() throws Exception {
+		Document document = new Document();
+		String filePath = "C:\\CURRICULO\\2023Currículo Nelson.pdf";
+		File file = new File(filePath);
+		PdfWriter.getInstance(document, new FileOutputStream(file));
+		document.open();
+		//document.add(true);
+		document.close();
+
+		return new FileInputStream(file);
 
 	}
 
