@@ -18,6 +18,9 @@ public class ObjetoenvioEmail2 {
 	
 	private String listaDestinatarios = "";
 	private String nomeRemetente = "";
+	private String assuntoEmail = "";
+	private String textoEmail = "";
+	private String filePath = "/caminho/para/arquivo/anexo.txt";
 	
 	
 	public void enviarEmail()  throws Exception{
@@ -50,8 +53,8 @@ public class ObjetoenvioEmail2 {
 		//message.setFrom(new InternetAddress(userName, nomeRemetente));//quem está enviando
 		message.setFrom(new InternetAddress(userName, nomeRemetente));//quem está enviando, seu nome no e-mail
 		message.setRecipients(Message.RecipientType.TO, toUser);// quem estou enviando
-		message.setSubject("Chegou email enviado com java");//Assunto do e-mail
-		message.setText("Teste de email");
+		message.setSubject(assuntoEmail);//Assunto do e-mail
+		message.setText(textoEmail);
 		
 		Transport.send(message);
 		//caso o e-mail não está sendo enviado colocar um tempo
