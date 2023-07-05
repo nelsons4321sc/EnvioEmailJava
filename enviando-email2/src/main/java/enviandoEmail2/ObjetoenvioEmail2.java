@@ -134,6 +134,10 @@ public class ObjetoenvioEmail2 {
 			corpoEmail.setText(textoEmail);
 		}
 		
+		//PARTE 2 do email que é o anexo do email;
+		MimeBodyPart anexoEmail = new MimeBodyPart();
+		
+		
 		Transport.send(message);
 		
 		}
