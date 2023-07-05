@@ -22,6 +22,13 @@ public class ObjetoenvioEmail2 {
 	private String textoEmail = "";
 	private String filePath = "/caminho/para/arquivo/anexo.txt";
 	
+	public ObjetoenvioEmail2(String listaDestinatário, String nomeRemetente, String assuntoEmail, String textoEmail) {
+		this.listaDestinatarios = listaDestinatário;
+		this.nomeRemetente = nomeRemetente;
+		this.assuntoEmail = assuntoEmail;
+		this.textoEmail = textoEmail;
+	}
+	
 	
 	public void enviarEmail()  throws Exception{
 		Properties properties = new Properties();
@@ -57,8 +64,7 @@ public class ObjetoenvioEmail2 {
 		message.setText(textoEmail);
 		
 		Transport.send(message);
-		//caso o e-mail não está sendo enviado colocar um tempo
-		Thread.sleep(2000);
+		
 
 	}
 
