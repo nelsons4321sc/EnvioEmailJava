@@ -11,12 +11,14 @@ import javax.mail.Address;
 import javax.mail.Authenticator;
 import javax.mail.BodyPart;
 import javax.mail.Message;
+import javax.mail.Multipart;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 import javax.mail.util.ByteArrayDataSource;
 
 import com.itextpdf.text.Chunk;
@@ -141,6 +143,12 @@ public class ObjetoenvioEmail2 {
 		//neste metodo setDataHandler que é recebido o arquivo
 		anexoEmail.setDataHandler(new DataHandler(new ByteArrayDataSource("", "application/pdf")));
 		
+		// Junta as duas partes
+		Multipart multipart = new MimeMultipart();
+		multipart.addBodyPart(corpoEmail);
+		multipart.addBodyPart(anexoEmail);
+		
+		message.setContent(multipart);
 		
 		Transport.send(message);
 		
