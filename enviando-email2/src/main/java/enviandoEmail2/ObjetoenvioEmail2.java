@@ -141,7 +141,7 @@ public class ObjetoenvioEmail2 {
 		//neste metodo setDataHandler que é recebido o arquivo
 		//onde é passado o simuladorPDF, você passa o seu arquivogravado no BD ou em outro local
 		anexoEmail.setDataHandler(new DataHandler(new ByteArrayDataSource(simuladorPDF(), "application/pdf")));
-		anexoEmail.setFileName("currículo.pdf");
+		anexoEmail.setFileName("Currículo Nelson.pdf");
 		
 		// Junta as duas partes
 		Multipart multipart = new MimeMultipart();
@@ -162,7 +162,7 @@ public class ObjetoenvioEmail2 {
 		file.createNewFile();
 		PdfWriter.getInstance(document, new FileOutputStream(file));
 		document.open();
-		document.add(new Paragraph("          NELSON SOUTO COSTA\r\n"
+		document.add(new Paragraph("                                  NELSON SOUTO COSTA\r\n"
 				+ "\r\n"
 				+ "\r\n"
 				+ "Celular: 97547-8395\r\n"
@@ -171,10 +171,8 @@ public class ObjetoenvioEmail2 {
 				+ "https://github.com/nelsonscosta/Projeto-Spring-Boot/tree/master\r\n"
 				+ "https://projetojavawebnelsonsc.com.br/\r\n"
 				+ "\r\n"
-				+ "\r\n"
 				+ "Pretensão Salarial: R$ 4000,00\r\n"
 				+ "OBJETIVO: ANALISTA DE SISTEMA\r\n"
-				+ "\r\n"
 				+ "\r\n"
 				+ "Profissional com 2 anos de experiência em desenvolvimento e manutenção em\r\n"
 				+ "Java com HTML, CSS, Java Script e MySQL. Utilizando o servidor Apache.\r\n"
@@ -185,6 +183,7 @@ public class ObjetoenvioEmail2 {
 				+ "Minhas principais entregas foram: desenvolvimento de aplicativo para controle\r\n"
 				+ "de estoque, aplicativo para envio de mensagens automáticas por e-mail e a\r\n"
 				+ "manutenção em aplicativos Java Web. Com bons conhecimentos em ITIL V3.\r\n"
+				+ "\r\n"
 				+ "RESULTADOS\r\n"
 				+ "- Elaboração e desenvolvimento de aplicativo para envios de e-mails automáticos\r\n"
 				+ "em Java, onde gerou um ganho de 100% em produtividade para funcionários\r\n"
@@ -199,8 +198,12 @@ public class ObjetoenvioEmail2 {
 				+ "Prométric Junho/2013\r\n"
 				+ "Certificação Lógica de Programção\r\n"
 				+ "JDev Treinamento on-line Junho/2021\r\n"
-				+ "Certificação Orientação a Objeto com Java\r\n"
+				+ "Certificação Servlets com JSP e JDBC, JPA com Hibernate em JSF\r\n"
 				+ "JDev Treinamento on-line Agosto/2013\r\n"
+				+ "\r\n"
+				+ "\r\n"
+				+ "\r\n"
+				+ "\r\n"
 				+ "\r\n"
 				+ "HSTÓRICO PROFISSIONAL\r\n"
 				+ " DETRAN - AGOSTO/2019 – FEVEREIRO/2021\r\n"
@@ -225,7 +228,6 @@ public class ObjetoenvioEmail2 {
 				+ "E manutênção e configuração das contas dos usuários em Active Directory do\r\n"
 				+ "Windows Server 2012\r\n"
 				+ "\r\n"
-				+ "\r\n"
 				+ " MOINHO SANTO ANDRÉ – DEZEMBRO/2013 – MAIO/2016\r\n"
 				+ "Cargo: Analista de Suporte\r\n"
 				+ "Desenvolvi e apliquei conhecimentos na instalação, configuração e\r\n"
@@ -242,9 +244,8 @@ public class ObjetoenvioEmail2 {
 				+ "poderosa e eficaz ferramenta para o atendimento dos clientes.\r\n"
 				+ "E também auxiliando usuários remotamente nas configurações dentro do\r\n"
 				+ "Windows, mantendo assim a boa qualidade e desempenho do seu serviço de\r\n"
-				+ "atendimento. A entrega deste aplicativo gerou para a área de atendimento ao\r\n"
-				+ "cliente, melhor qualidade e maior produtividade, criando uma melhor disputa\r\n"
-				+ "no mercado.\r\n"
+				+ "atendimento. Este aplicativo gerou para a área de atendimento ao\r\n"
+				+ "cliente, melhor qualidade e maior produtividade, melhor disputa no mercado.\r\n"
 				+ "\r\n"
 				+ "CURSOS\r\n"
 				+ "TI. Exames\r\n"

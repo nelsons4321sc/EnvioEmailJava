@@ -71,7 +71,7 @@ public class AppTest {
 				+ "<li><strong style=\"color: rgb(255,0,0)\">ATLAS SHINDLER – OUTUBRO/2018 –FEVEREIRO/2019 </strong></li>\r\n"
 				+ "(Projeto Temporário)</strong>\r\n"
 				+ "<br>\r\n"
-				+ "Cargo: Analista de Sistema\r\n"
+				+ "Cargo: Programador Java\r\n"
 				+ "<br>\r\n"
 				+ "Manutenção e desenvolvimento em sistemas JSP com HTML e Java Script\r\n"
 				+ "usando banco de dados MySQL, para departamentos de Engenharia, gerando\r\n"
@@ -130,13 +130,31 @@ public class AppTest {
 		stringBuilderTextoEmail.append("<a target=\"_blank\" href=\"https://projetojavawebnelsonsc.com.br\" style=\"color:#2b086b; padding:14px 25px; text-align: center; text-decoration: none;display: inline-block; border-radius: 30px; font-size:20px; font-family: Courier; border: 3px solid rgb(1, 51, 1); background-color: #64af38;\">Acesso ao Projeto</a>");
 		
 		stringBuilderTextoEmail.append("<span style=\"font-size: 15px;\"> Ass.: Nelson Souto Costa</span>");
+		stringBuilderTextoEmail.append("<p>");
+		stringBuilderTextoEmail.append("<p>");
+		stringBuilderTextoEmail.append("<p>");
+		stringBuilderTextoEmail.append("<p>");
+		stringBuilderTextoEmail.append("<p>");
+		stringBuilderTextoEmail.append("");
+		stringBuilderTextoEmail.append("");
+		stringBuilderTextoEmail.append("");
+		stringBuilderTextoEmail.append("");
+		stringBuilderTextoEmail.append("<strong>Segue abaixo também, meu currículo em anexo</strong>");
 		
-		
-		
-		ObjetoenvioEmail2 enviaEmail = new ObjetoenvioEmail2("nelsonscosta@yahoo.com.br", // destinatário
+		/*
+		ObjetoenvioEmail2 enviaEmail = new ObjetoenvioEmail2("nelsonscosta@yahoo.com.br, galdino@runtalent.it", // destinatário
 															  "Nelson - Programador em Java", //remetente
 															  "Email enviado através do java", //Assinto do email
 															   stringBuilderTextoEmail.toString()); //conteúdo do email
+		*/
+		
+		ObjetoenvioEmail2 enviaEmail = new ObjetoenvioEmail2("nelsonscosta@yahoo.com.br, galdino@runtalent.it", // destinatário
+				  "Nelson - Programador em Java", //remetente
+				  "apinfo - 63527 - Full Stack", //Assinto do email
+				   stringBuilderTextoEmail.toString()); //conteúdo do email
+
+		
+		
 		//quando enviar email html será true
 		//quando enviar email somente texto será false
 		enviaEmail.enviarEmailanexo(true);
